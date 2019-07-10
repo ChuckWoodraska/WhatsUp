@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page_content %}
+    <br><br>
+    <div style="margin: auto; text-align: center;">
+        <h1>What's Up?</h1>
+    </div>
+    <ul class="nav nav-tabs" id="serverTabs">
+        {% for s in services %}
+            <li class="nav-item">
+                <a class="nav-link {% if loop.index == 1 %}active{% endif %}"
+                   href="#{{ s["name"] }}{{ s["service"] }}DataTab">{{ s["name"] }} {{ s["service"] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content" id="serverTabContent">
+        {% for s in services %}
+            <div class="tab-pane {% if loop.index == 1 %}active show{% endif %}"
+                 id="{{ s["name"] }}{{ s["service"] }}DataTab" role="tabpanel">
+                {% for line in s["log"] %}
+                    {{ line }}<br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

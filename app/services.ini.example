@@ -1,0 +1,13 @@
+[SERVER1]
+HOSTNAME=example1.com
+USERNAME=ubuntu
+PORT=22
+KEY_FILE_PATH=/home/ubuntu/.ssh/example1.pem
+SERVICES=service1,service2
+
+[SERVER2]
+HOSTNAME=example2.com
+USERNAME=ubuntu
+PORT=22
+KEY_FILE_PATH=/home/ubuntu/.ssh/example2.pem
+SERVICES=service1,service2,service3
