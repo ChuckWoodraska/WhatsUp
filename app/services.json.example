@@ -1,0 +1,24 @@
+[
+  {
+    "name": "SERVER1",
+    "hostname": "example1.com",
+    "username": "ubuntu",
+    "port": 22,
+    "key_file_path": "/home/ubuntu/.ssh/example1.pem",
+    "services": [
+      {"command": "service service1 status", "regex": "", "assert": { "operator": "contains", "value": "active" }, "sudo": true},
+      {"command": "du -f s", "regex": "", "assert": { "operator": "contains", "value": "active" }, "sudo": true}
+    ]
+  },
+  {
+    "name": "SERVER2",
+    "hostname": "example2.com",
+    "username": "ubuntu",
+    "port": 22,
+    "key_file_path": "/home/ubuntu/.ssh/example2.pem",
+    "services": [
+      { "command": "service service1 status", "regex": "", "assert": { "operator": "contains", "value": "active" }, "sudo": true },
+      { "command": "du -f s", "regex": "", "assert": { "operator": "contains", "value": "active" }, "sudo": true }
+    ]
+  }
+]

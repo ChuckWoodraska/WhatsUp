@@ -8,18 +8,22 @@
         {% for s in services %}
             <li class="nav-item">
                 <a class="nav-link {% if loop.index == 1 %}active{% endif %}"
-                   href="#{{ s["name"] }}{{ s["service"] }}DataTab">{{ s["name"] }} {{ s["service"] }}</a>
+                   href="#{{ s["name"] }}DataTab">{{ s["name"] }}</a>
             </li>
         {% endfor %}
     </ul>
     <div class="tab-content" id="serverTabContent">
-        {% for s in services %}
-            <div class="tab-pane {% if loop.index == 1 %}active show{% endif %}"
-                 id="{{ s["name"] }}{{ s["service"] }}DataTab" role="tabpanel">
-                {% for line in s["log"] %}
-                    {{ line }}<br>
+            {% for s in services %}
+    <div class="tab-pane {% if loop.index == 1 %}active show{% endif %}"
+                 id="{{ s["name"] }}DataTab" role="tabpanel">
+        <nav class="nav flex-column">
+            {% for x in s["commands"] %}
+
+            <a class="nav-link {% if loop.index == 1 %}active show{% endif %}" href="#">{{ x }}</a>
                 {% endfor %}
-            </div>
-        {% endfor %}
+
+        </nav>
     </div>
+            {% endfor %}
 {% endblock %}
+
