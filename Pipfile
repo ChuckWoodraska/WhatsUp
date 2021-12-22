@@ -12,8 +12,10 @@ coverage = "*"
 [packages]
 flask = "*"
 gunicorn = "*"
-paramiko = "*"
+paramiko = "==2.7.2"
 chuck_pyutils = {git = "https://github.com/ChuckWoodraska/ChuckPyUtils.git",editable = true}
+tinydb = "*"
+witnessme = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
