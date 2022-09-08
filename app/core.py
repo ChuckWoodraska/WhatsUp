@@ -17,10 +17,8 @@ def get_data():
             key_filename=config[x]["KEY_FILE_PATH"],
         )
         for s in config[x]["SERVICES"].split(","):
-            stdin, stdout, stderr = client.exec_command(
-                "sudo service {} status".format(s)
-            )
-            temp_dict = {"name": x, "service": s, "log": [line for line in stdout]}
+            stdin, stdout, stderr = client.exec_command(f"sudo service {s} status")
+            temp_dict = {"name": x, "service": s, "log": list(stdout)}
             result.append(temp_dict)
         client.close()
     return result

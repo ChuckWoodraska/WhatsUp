@@ -19,7 +19,7 @@ def create_app(config_path, settings_override=None):
     # app.config['SERVER_NAME'] = 'localhost'
     app.config["ENVIRONMENT"] = config["ENV"]["STAGE"]
 
-    app.debug = True if config["ENV"]["STAGE"] == "dev" else False
+    app.debug = config["ENV"]["STAGE"] == "dev"
     app.secret_key = config["ENV"]["SECRET_KEY"]
 
     if settings_override:
